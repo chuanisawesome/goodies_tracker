@@ -1,2 +1,2 @@
 # goodies_tracker
-A goodies tracker for your stamp cards.
+A goodies tracker for your stamp and gift cards.
