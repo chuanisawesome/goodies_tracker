@@ -16,9 +16,20 @@ class StampCard:
         return str(self.stamp_capacity)
 
     def print_stamps(self):
-        for i in range(1, self.stamp_capacity):
-            print("x")
+        stamps = []
+        for x in range(3, self.stamp_capacity):
+            stamps.append(["X"] * self.stamp_capacity)
+        for row in stamps:
+            # concatenates each string
+            print (" ".join([str(row)]))
 
-oasis = StampCard("Oasis", 10)
-print("Name: " + oasis.name() + ", Capacity: " + oasis.capacity())
+    def stamp_row(self):
+        return (1, len(self.stamp_capacity) - 1)
+
+    def stamp_col(self):
+        return (1, len(self.stamp_capacity) - 1)
+
+
+oasis = StampCard("Oasis", 5)
+print("Name: " + oasis.name() + ", Capacity in each row: " + oasis.capacity())
 oasis.print_stamps()
