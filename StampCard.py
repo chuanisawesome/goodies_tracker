@@ -7,6 +7,9 @@ class StampCard:
         self.stamp_capacity = stamp_capacity
 
     def name(self):
+        """
+        Return the name of the stampcard
+        """
         return self.card_name
 
     def capacity(self):
