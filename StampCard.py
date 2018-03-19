@@ -58,7 +58,8 @@ class StampCard:
         stamps = []
         stamps_per_row = self.stamp_capacity / 2  # hardcoded rows for now...
         for x in range(1, 3):
-            stamps.append([self.stamp_symbol] * stamps_per_row)
+            sta = raw_input("Enter a stamp: ")                              # enters raw_input stamps from user
+            stamps.append(sta.decode('utf8') * stamps_per_row)              # is able to put unicode into the StampCard
         print (tabulate(stamps, tablefmt="grid").encode('utf8', 'replace'))  # takes a list of lists or another tabular data type as the first argument, and outputs a nicely formatted table
 
 
@@ -67,5 +68,6 @@ def main():
     oasis = StampCard("Oasis", "Bubble Tea", 10, stamp, "University District")
     print("Name: " + oasis.get_name() + ", Capacity: " + oasis.get_capacity())
     oasis.print_stamps()
+
 
 main()
