@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 from tabulate import tabulate
+import chardet
+
 # TODO: Put the dependencies into a venv so that it's easy to install
 # TODO: add the amount of stamps we currently have vs. the stamp_capacity
 
@@ -59,7 +61,7 @@ class StampCard:
         stamps_per_row = self.stamp_capacity / 2  # hardcoded rows for now...
         for x in range(1, 3):
             sta = raw_input("Enter a stamp: ")                              # enters raw_input stamps from user
-            stamps.append(sta.decode('utf8') * stamps_per_row)              # is able to put unicode into the StampCard
+            stamps.append((chardet(sta)['encoding'], 'utf-8')) * stamps_per_row # is able to put unicode into the StampCard
         print (tabulate(stamps, tablefmt="grid").encode('utf8', 'replace'))  # takes a list of lists or another tabular data type as the first argument, and outputs a nicely formatted table
 
 
